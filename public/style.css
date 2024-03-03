@@ -1,0 +1,134 @@
+/* CSS styles for the success page */
+.main.success {
+    padding: 20px;
+    font-family: 'Helvetica', sans-serif;
+    box-shadow: 5px 5px 7px 5px #888888;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.main.success h1 {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    color: #06a4c8;
+    border-bottom: 2px solid #4CAF50; /* Border under the heading */
+    padding-bottom: 10px; /* Space between heading and content */
+}
+
+/* CSS styles for the signup form */
+/* Add this CSS rule to provide a border around the form container */
+.main form {
+    border: 2px solid #3498db; /* Blue border */
+    padding: 20px; /* Add padding for space inside the border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.main.form {
+    padding: 20px;
+    font-family: 'Helvetica', sans-serif;
+    box-shadow: 5px 5px 7px 5px #888888;
+    background-color: #f7f7f7; /* Light gray background */
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.main.form h1 {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    color: #2c3e50; /* Dark blue color */
+    border-bottom: 2px solid #2c3e50; /* Border under the heading */
+    padding-bottom: 10px; /* Space between heading and content */
+    background-color: #34495e; /* Darker blue background for the heading */
+    color: #ecf0f1; /* Light text color for the heading */
+    border-radius: 10px; /* Rounded corners for the heading box */
+    padding: 15px; /* Padding inside the heading box */
+}
+
+input {
+    font-family: 'Helvetica', sans-serif;
+    width: 100%;
+    font-size: 20px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 2px solid #2c3e50; /* Dark blue border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+input[type=submit] {
+    font-family: 'Helvetica', sans-serif;
+    width: 100%;
+    background-color: #2c3e50; /* Darker blue background */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    margin: 20px 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #233140; /* Darker blue on hover */
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.hero-section {
+    background: url('university-background.jpg') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-section h2 {
+    font-size: 36px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}

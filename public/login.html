@@ -1,0 +1,153 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Login</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1 style="text-align: center;">Veritas University</h1>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" style="color: white;">Student</a>
+                            <div class="dropdown-content">
+                                <a href="/registration.html" style="color: black;">Registration</a>
+                                <a href="/login.html" style="color: black;">Login</a>
+                            </div>
+                        </li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container">
+            <h1>Login</h1>
+            <form action="/login" method="post" onsubmit="return validateLoginForm()">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" name="loginUsername" required>
+            
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+            
+                <!-- Hidden input for username -->
+                <input type="hidden" id="loginHiddenUsername" name="loginHiddenUsername">
+            
+                <input type="submit" id="loginSubmit" name="loginSubmit" value="Login">
+            </form>
+            <p id="loginError" class="error-message"></p>
+                <!-- <%= req.session.loginError %> -->
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+
+            function validateLoginForm() {
+                // Clear any previous error message
+                document.getElementById("loginError").innerText = "";
+
+                var username = document.getElementById("loginUsername").value;
+                var password = document.getElementById("loginPassword").value;
+
+                // Send a request to the server to check username and password
+                fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ loginUsername: username, loginPassword: password }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        document.getElementById("loginError").innerText = "Invalid username or password";
+                        throw new Error('Invalid username or password');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Set the username in the hidden field for redirect
+                    document.getElementById("loginHiddenUsername").value = data.username;
+                    // Redirect to student details page upon successful login
+                    window.location.href = `/student_details?username=${data.username}`;
+                })
+                .catch(error => {
+                    // Display the error message for unsuccessful login
+                    document.getElementById("loginError").innerText = "Invalid username or password";
+                    
+                    // Check if it's an invalid username or password error
+                    if (error.message.includes('Invalid username or password')) {
+                        alert("Wrong username or password");
+                        console.error('Error during login:', error);
+                    }
+                });
+
+                return false;
+            }
+        }); 
+        </script>
+
+    </body>
+    </html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Your University Name</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/registration">Registration</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Login</h1>
+        <p id="loginErrorMessage" class="error-message"></p>
+        <form action="/login" method="post" onsubmit="return validateLoginForm()">
+            <label for="loginUsername">Username/Email:</label>
+            <input type="text" id="loginUsername" name="loginUsername" required>
+        
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+        
+            Hidden input for username
+            <input type="hidden" id="loginHiddenUsername" name="loginHiddenUsername">
+        
+            <input type="submit" id="loginSubmit" name="loginSubmit" value="Login">
+        </form>
+        <p id="loginError" class="error-message"></p>
+    </div>
+    <script>
+        function validateLoginForm() {
+            // Clear any previous error message
+            document.getElementById("loginErrorMessage").innerText = "";
+            // You can add additional validation logic here if needed
+            return true;
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your University. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> -->

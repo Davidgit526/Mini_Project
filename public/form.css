@@ -1,0 +1,151 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0a172e, #EDF4F2);
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #020c23;
+    color: white;
+    padding: 1rem 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+    margin-right: 50px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    background-color: #666;
+    color: #672120;
+}
+
+nav ul li.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #962E2A;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #EDF4F2;
+    color: #173f77;
+}
+
+.container {
+    background: linear-gradient(to bottom, #CEE6F2, #5294b5);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: #31473A;
+    
+}
+
+.container1{
+        max-width: 400px; /* Adjust the max-width as needed */
+        margin: 0 auto; /* Center the container horizontally */
+        background: linear-gradient(to bottom,  #06a4c8,#ffffff);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        color: #31473A;
+    }
+
+
+h1 {
+    color: #31473A;
+}
+
+label {
+    display: block;
+    /* margin: 50px 0 5px; */
+    font-weight: bold;
+}
+
+input,
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+select {
+    background-color: #fff;
+}
+
+button {
+    background-color: #19d969;
+    color: #000000;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: inline-block;
+    font-weight: bold;
+
+}
+
+button:hover {
+    background-color: #2b3a2e;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-top: 20px;
+    font-weight: bold;
+
+}
+
+
+

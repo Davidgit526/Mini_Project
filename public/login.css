@@ -1,0 +1,123 @@
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 30px;
+    background: linear-gradient(to bottom, #0a172e, #EDF4F2);
+    color: #333;
+    line-height: 1.6;
+    /* text-align: center; */
+}
+
+header {
+    background-color: #020c23;
+    color: white;
+    padding: 1rem 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+    margin-right: 50px; /* Adjust this value for the desired spacing */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    background-color: #666;
+    /* color: #672120; Change the color on hover */
+}
+
+nav ul li.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2a71bd;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown-content a {
+    display: block; /* Make the links display as block elements */
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #EDF4F2; /* Change the background color on hover */
+    color: #173f77;
+}
+
+.container {
+    background-color: #00246B, #CADCFC;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.container h1 {
+    color: #173f77; /* Dark blue color */
+}
+
+form label {
+    color: #173f77; /* Dark blue color */
+}
+
+form input[type="text"],
+form input[type="password"] {
+    display: flex;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #89ABE3; /* Light blue border */
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #EA738D; /* Coral color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #D04D6A; /* Darker coral color on hover */
+}
+
+.error-message {
+    color: #EA738D; /* Coral color for error messages */
+}
+
+/* Add any additional styling as needed */

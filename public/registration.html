@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas University - Registration</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+       <header>
+              <div class="container">
+                  <h1>Veritas University</h1>
+                  <nav>
+                      <ul>
+                          <li><a href="/" style="color: black;">Home</a></li>
+                          <li><a href="/registration.html" style="color: black;">Registration</a></li>
+                          <li><a href="/contact.html" style="color: black;">Contact Us</a></li>
+                      </ul>
+                  </nav>
+              </div>
+          </header>
+          
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form action="http://localhost:3000/sign_up" method="post" onsubmit="return validateForm()">
+            <label for="fname">Full Name:</label>
+            <input type="text" id="fname" name="fname" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <p id="usernameError" class="error-message"></p> <!-- Error message for username -->
+
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmpass">Confirm Password:</label>
+            <input type="password" id="confirmpass" name="confirmpass" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+                <option value="o">Other</option>
+            </select>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="gpa">GPA:</label>
+            <input type="number" id="gpa" name="gpa" required>
+
+            <label for="rank">Class Rank:</label>
+            <input type="number" id="rank" name="rank" required>
+
+            <input type="submit" id="submitDetails" name="submitDetails" value="Submit">
+        </form>
+        <p id="passwordError" class="error-message"></p>
+    </div>
+
+    <script>
+        async function validateForm() {
+            var username = document.getElementById("username").value;
+
+                // Check if the username already exists
+                const response = await fetch('/check_username', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username: username }),
+                });
+
+                const data = await response.json();
+
+                if (data.exists) {
+                    document.getElementById("usernameError").innerText = "Username already exists.";
+                    return false;
+                } else {
+                    // Clear any previous username error message
+                    document.getElementById("usernameError").innerText = "";
+
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmpass").value;
+
+            if (password !== confirmPassword) {
+                document.getElementById("passwordError").innerText = "Passwords do not match";
+                return false;
+            } else {
+                document.getElementById("passwordError").innerText = "";
+                return true;
+            }
+        }
+    }
+    </script>
+</body>
+</html>
