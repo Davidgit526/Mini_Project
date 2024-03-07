@@ -12,5 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
- # Adjust the port to match your MongoDB container
 CMD [ "node", "node.js"] 
