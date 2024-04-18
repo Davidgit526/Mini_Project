@@ -1,24 +1,17 @@
 version: '3.8'
- 
-services:
-  nodejs:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: nodejs-container
-    #restart: unless-stopped
-    ports:
-      - "3000:3000"
-    environment:
-      MONGO_URI: mongodb://mongo:27017/Fahman
-    depends_on:
-      - mongo
 
-  mongo:
-             container_name: mongodb-container
-             image: mongo
-             volumes:
-               - ./data:/data/db
-             ports:
-               - '27017:27017'       
-                
+services:
+  king-4:
+    image: david-4
+    build: .
+    ports:
+      - '4000:3000'
+    environment:
+      - MONGO_URI:'mongodb://127.0.0.1:27017/Fahman'
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
